@@ -64,7 +64,7 @@ export default function Home() {
       </Head>
 
       <div className="flex flex-col font-body min-h-screen">
-        <header className="max-w-5xl bg-mobile-light dark:bg-mobile-dark sm:bg-desktop-light sm:dark:bg-desktop-dark bg-cover bg-center min-h-[400px] sm:min-h-[400px] flex justify-end">
+        <header className="bg-mobile-light dark:bg-mobile-dark sm:bg-desktop-light sm:dark:bg-desktop-dark bg-cover bg-center min-h-[400px] sm:min-h-[400px] flex justify-end">
           {/* <Container> */}
             <section
               className={`flex items-end flex-col justify-end max-w-md mx-auto px-6 py-10 sm:py-16`}
