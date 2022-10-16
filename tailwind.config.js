@@ -1,6 +1,9 @@
 module.exports = {
-  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
-  darkMode: "class",
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
+  // darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -8,7 +11,8 @@ module.exports = {
         "check-end": "hsl(280, 87%, 65%)",
       },
       fontFamily: {
-        body: ["Josefin Sans", "sans-serif"],
+        sans: ["Josefin Sans", "sans-serif"],
+        display: ["Inter", "sans-serif"]
       },
       backgroundImage: {
         "mobile-light": "url('/bg.jpg')",

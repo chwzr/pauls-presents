@@ -64,59 +64,44 @@ export default function Home() {
       </Head>
 
       <div className="flex flex-col font-body min-h-screen">
-        <header className="bg-mobile-light dark:bg-mobile-dark sm:bg-desktop-light sm:dark:bg-desktop-dark bg-cover bg-center min-h-[400px] sm:min-h-[400px] flex justify-end">
+        <header className="bg-mobile-light bg-cover bg-center min-h-[400px] sm:min-h-[400px] flex justify-end relative z-0">
           {/* <Container> */}
-            <section
-              className={`flex items-end flex-col justify-end max-w-md mx-auto px-6 py-10 sm:py-16`}
-            >
-              <div className="flex justify-between">
-                <h1 className="text-xl sm:text-3xl text-white font-bold tracking-[0.625rem]">
-                  Pauls Wunschliste
-                </h1>
-                {/* <ToggleThemeButton /> */}
-              </div>
-              {/* <Form reloadTodos={reloadTodos} /> */}
-            </section>
+          <section
+            className={`flex items-end flex-col justify-end max-w-md mx-auto px-6 py-10 sm:py-16`}
+          >
+            <div className="flex justify-between">
+              <h1 className="z-40 text-3xl sm:text-3xl text-white font-extrabold font-display drop-shadow-md md:drop-shadow-xl">
+                Pauls Wunschliste
+              </h1>
+              {/* <ToggleThemeButton /> */}
+            </div>
+            {/* <Form reloadTodos={reloadTodos} /> */}
+          </section>
           {/* </Container> */}
+          <div className="absolute bottom-0 bg-gradient-to-t from-black/90 to-transparent h-28 w-full" />
         </header>
-        <main className="flex-1 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 ">
+        <main className="flex-1 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 z-40">
           <Container>
-            <small className="text-gray-500 text-center my-3">
+            {/* <small className="text-gray-500 text-center my-3">
               Bei Wunscherfüllung bitte abhaken!
-            </small>
+            </small> */}
             {todos ? (
-              // <DragDropContext onDragEnd={handleOnDragEnd}>
-              //   <Droppable droppableId="todos">
-              //     {(provided) => (
-              //       <ul
-              //         {...provided.droppableProps}
-              //         ref={provided.innerRef}
-              //         className="-mt-16 sm:-mt-28 rounded-t-md overflow-hidden"
-              //       >
-              <>
+              <ul className="-mt-16 sm:-mt-28 rounded-t-md overflow-hidden shadow-lg">
+                <li className="justify-between  bg-white dark:bg-gray-800 shadow-sm py-4 px-6 border-b dark:border-gray-700 text-sm">
+                  Hier könnt ihr Paul einen Wunsch erfüllen.
+                  Hakt den Eintrag bitte ab, sobald ihr ihn bestellt habt. 
+                  <br />
+                  <br />
+                  <span className="italic">
+                  Vielen Dank!
+                  </span>
+                </li>
                 {todos.map((todo, index) => (
-                  // <Draggable
-                  //   key={todo._id}
-                  //   draggableId={todo._id}
-                  //   index={index}
-                  // >
-                  //   {(provided) => (
-                  // <li
-                  //   // ref={provided.innerRef}
-                  //   // {...provided.draggableProps}
-                  //   // {...provided.dragHandleProps}
-                  // >
-                  <Todo todo={todo} reloadTodos={reloadTodos} />
-                  // </li>
-                  //   )}
-                  // </Draggable>
+                  <li key={index}>
+                    <Todo todo={todo} reloadTodos={reloadTodos} />
+                  </li>
                 ))}
-                {/* {provided.placeholder}
-                    </ul>
-                    )}
-                    </Droppable>
-                  </DragDropContext> */}
-              </>
+              </ul>
             ) : (
               <div>Loading...</div>
             )}
