@@ -99,7 +99,7 @@ export default function Home() {
                               {...provided.draggableProps}
                               {...provided.dragHandleProps}
                             >
-                              <Todo todo={todo} reloadTodos={reloadTodos} />
+                              <Todo todo={todo} reloadTodos={reloadTodos} admin={true} />
                             </li>
                           )}
                         </Draggable>
