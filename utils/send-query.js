@@ -5,7 +5,7 @@ config();
 
 export default async function sendQuery(query, variables) {
   const res = await axios({
-    url: "https://graphql.fauna.com/graphql",
+    url: "https://graphql.eu.fauna.com/graphql",
     method: "POST",
     headers: {
       Authorization: `Bearer ${process.env.FAUNA_SERVER_SECRET}`,

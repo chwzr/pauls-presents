@@ -6,6 +6,7 @@ const GET_ALL_TODOS = `
       data {
         _id
         text
+        link
         completed
       }
     }

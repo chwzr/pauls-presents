@@ -1,5 +1,6 @@
 type Todo {
   text: String!
+  link: String!
   completed: Boolean
 }
 

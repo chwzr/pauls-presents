@@ -64,59 +64,52 @@ export default function Home() {
       </Head>
 
       <div className="flex flex-col font-body min-h-screen">
-        <header className="max-w-5xl bg-mobile-light dark:bg-mobile-dark sm:bg-desktop-light sm:dark:bg-desktop-dark bg-cover bg-center min-h-[400px] sm:min-h-[400px] flex justify-end">
-          {/* <Container> */}
-            <section
-              className={`flex items-end flex-col justify-end max-w-md mx-auto px-6 py-10 sm:py-16`}
-            >
-              <div className="flex justify-between">
-                <h1 className="text-xl sm:text-3xl text-white font-bold tracking-[0.625rem]">
-                  Pauls Wunschliste
-                </h1>
-                {/* <ToggleThemeButton /> */}
-              </div>
-              {/* <Form reloadTodos={reloadTodos} /> */}
-            </section>
-          {/* </Container> */}
+        <header className="bg-mobile-light dark:bg-mobile-dark sm:bg-desktop-light sm:dark:bg-desktop-dark bg-cover bg-center min-h-[400px] sm:min-h-[400px] flex justify-end">
+          <Container>
+            <div className="flex justify-between">
+              <h1 className="text-xl sm:text-3xl text-white font-bold tracking-[0.625rem]">
+                Pauls Wunschliste
+              </h1>
+              {/* <ToggleThemeButton /> */}
+            </div>
+            <Form reloadTodos={reloadTodos} />
+          </Container>
         </header>
         <main className="flex-1 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 ">
           <Container>
-            <small className="text-gray-500 text-center my-3">
-              Bei Wunscherfüllung bitte abhaken!
-            </small>
             {todos ? (
-              // <DragDropContext onDragEnd={handleOnDragEnd}>
-              //   <Droppable droppableId="todos">
-              //     {(provided) => (
-              //       <ul
-              //         {...provided.droppableProps}
-              //         ref={provided.innerRef}
-              //         className="-mt-16 sm:-mt-28 rounded-t-md overflow-hidden"
-              //       >
-              <>
-                {todos.map((todo, index) => (
-                  // <Draggable
-                  //   key={todo._id}
-                  //   draggableId={todo._id}
-                  //   index={index}
-                  // >
-                  //   {(provided) => (
-                  // <li
-                  //   // ref={provided.innerRef}
-                  //   // {...provided.draggableProps}
-                  //   // {...provided.dragHandleProps}
-                  // >
-                  <Todo todo={todo} reloadTodos={reloadTodos} />
-                  // </li>
-                  //   )}
-                  // </Draggable>
-                ))}
-                {/* {provided.placeholder}
+              <DragDropContext onDragEnd={handleOnDragEnd}>
+                <Droppable droppableId="todos">
+                  {(provided) => (
+                    <ul
+                      {...provided.droppableProps}
+                      ref={provided.innerRef}
+                      className="-mt-16 sm:-mt-28 rounded-t-md overflow-hidden"
+                    >
+
+                      {todos.map((todo, index) => (
+                        <Draggable
+                          key={todo._id}
+                          draggableId={todo._id}
+                          index={index}
+                        >
+                          {(provided) => (
+                            <li
+                              ref={provided.innerRef}
+                              {...provided.draggableProps}
+                              {...provided.dragHandleProps}
+                            >
+                              <Todo todo={todo} reloadTodos={reloadTodos} />
+                            </li>
+                          )}
+                        </Draggable>
+                      ))}
+                      {provided.placeholder}
                     </ul>
-                    )}
-                    </Droppable>
-                  </DragDropContext> */}
-              </>
+                  )}
+                </Droppable>
+              </DragDropContext>
+
             ) : (
               <div>Loading...</div>
             )}
@@ -130,7 +123,9 @@ export default function Home() {
               setTodos={setTodos}
               reloadTodos={reloadTodos}
             />
-
+            <small className="text-gray-500 text-center mt-6">
+              Bei Wunscherfüllung bitte abhaken!
+            </small>
           </Container>
         </main>
         <footer className="bg-gray-100 dark:bg-gray-900 text-gray-500 text-center">

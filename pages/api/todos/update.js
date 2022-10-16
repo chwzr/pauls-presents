@@ -1,8 +1,8 @@
 import sendQuery from "../../../utils/send-query";
 
 const TOGGLE_COMPLETED = `
-  mutation($id: ID!, $text: String!, $completed: Boolean!) {
-    updateTodo(id: $id, data: { text: $text, completed: $completed }) {
+  mutation($id: ID!, $text: String!, $link: String! $completed: Boolean!) {
+    updateTodo(id: $id, data: { text: $text, link: $link,  completed: $completed }) {
       _id
       completed
     }
@@ -10,10 +10,11 @@ const TOGGLE_COMPLETED = `
 `;
 
 export default async function handler(req, res) {
-  const { id, text, completed } = req.body;
+  const { id, text, link, completed } = req.body;
   const { data, errors } = await sendQuery(TOGGLE_COMPLETED, {
     id,
     text,
+    link,
     completed,
   });
 
