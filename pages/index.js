@@ -96,7 +96,7 @@ export default function Home() {
                   Vielen Dank!
                   </span>
                 </li>
-                {todos.map((todo, index) => (
+                {todos.sort((x,y) => {return (x.completed === y.completed)? 0 : x.completed? 1 : -1}).map((todo, index) => (
                   <li key={index}>
                     <Todo todo={todo} reloadTodos={reloadTodos} />
                   </li>
